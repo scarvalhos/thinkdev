@@ -3,7 +3,7 @@
 </h1>
 
 <h2 align="center"> 
-	🚧 Thin Dev🚧
+	Thin Dev
 </h2>
 
 ## 💻 Sobre o projeto
@@ -13,21 +13,18 @@ Think Dev é um projeto desenvolvido para o teste prático da QuikDev.
 
 ## 🎨 Layout
 
-O layout da aplicação está disponível no Figma:
-
-### Web
+O layout da aplicação foi prototipado com o Figma:
 
 <p align="center" style="display: flex; align-items: flex-start; justify-content: center;">
-  <img alt="ThinkDev" title="#ThinkDev" src="./src/assets/login.png" width="400px">
-  <img alt="ThinkDev" title="#ThinkDev" src="./src/assets/home.png" width="400px">
-  <img alt="ThinkDev" title="#ThinkDev" src="./src/assets/profile.png" width="400px">
+  <img alt="ThinkDev" title="#ThinkDev" src="./src/assets/login.png" width="300px">
+  <img alt="ThinkDev" title="#ThinkDev" src="./src/assets/home.png" width="300px">
+  <img alt="ThinkDev" title="#ThinkDev" src="./src/assets/profile.png" width="300px">
 </p>
 
 ## 🛠 Tecnologias
 
 As seguintes ferramentas foram usadas na construção do projeto:
 
-- [Node.js][nodejs]
 - [React][reactjs]
 - [Vite.js][vitejs]
 - [TypeScript][typescript]
@@ -36,6 +33,7 @@ As seguintes ferramentas foram usadas na construção do projeto:
 - [Yup][yup]
 - [ReactTostify][reacttostify]
 - [ReactRouterDom][reactrouterdom]
+- [Figma][figma]
 
 
 ## 🚀 Como executar o projeto
@@ -84,6 +82,7 @@ Feito com ❤️ Samara Carvalho 👋🏽 [Entre em contato!](https://www.linked
 [yup]: https://www.npmjs.com/package/yup
 [reacttostify]: https://www.npmjs.com/package/react-toastify
 [reactrouterdom]: https://reactrouter.com/
+[figma]: https://figma.com
 
 [yarn]: https://yarnpkg.com/
 [vscode]: https://code.visualstudio.com/
