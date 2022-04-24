@@ -48,27 +48,3 @@ const Routes = () => {
 }
 
 export default Routes
-
-// import { FC } from 'react';
-// import { BrowserRouter, Route, Router, Switch } from 'react-router-dom';
-
-// import PrivateRoute from './private.routes';
-// import PublicRoute from './public.routes';
-
-// import history from './history';
-
-// const Routes: FC = () => {
-//     return (
-//       <BrowserRouter>
-//         <Router history={history}>
-//           <Switch>
-//             <PublicRoute exact restricted={true} component={Login} path="/" />
-//             <PublicRoute restricted={true} component={SignUp} path="/signup" />
-//             <PrivateRoute path="/home" component={Home} />
-//           </Switch>
-//         </Router>
-//       </BrowserRouter>
-//     );
-// }
-
-// export default Routes;
