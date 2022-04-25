@@ -3,7 +3,7 @@
 </h1>
 
 <h2 align="center"> 
-	Thin Dev
+	Think Dev
 </h2>
 
 ## 💻 Sobre o projeto
