@@ -6,8 +6,8 @@ import * as yup from 'yup'
 
 import { Box, Stack, Button, Typography, Alert } from '@mui/material'
 
-import { useAuth } from '../../contexts/AuthContext'
-import { Input } from '../../components/Form/Input'
+import { useAuth } from '../contexts/AuthContext'
+import { Input } from '../components/Form/Input'
 
 const signInFormSchema = yup.object().shape({
   username: yup.string().required('Username obrigatório!'),

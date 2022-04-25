@@ -1,9 +1,10 @@
 import { Avatar, Box, Container, Stack, Typography } from '@mui/material'
 
-import { Header } from "../components/Header"
-import { Post } from '../components/Post'
 import { useAuth } from "../contexts/AuthContext"
 import { usePosts } from '../contexts/PostsContext'
+
+import { Header } from "../components/Header"
+import { Post } from '../components/Post'
 
 export default function Profile() {
     const { user } = useAuth()

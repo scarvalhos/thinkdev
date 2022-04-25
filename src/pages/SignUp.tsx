@@ -1,6 +1,7 @@
+import { useLocation, useNavigate } from 'react-router-dom'
+
 import { FieldValues, SubmitHandler, useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
-
 import * as yup from 'yup'
 
 import { Box, Stack, Button, Typography, Alert } from '@mui/material'
@@ -8,7 +9,6 @@ import { Box, Stack, Button, Typography, Alert } from '@mui/material'
 import { useAuth } from '../contexts/AuthContext';
 
 import { Input } from '../components/Form/Input'
-import { useLocation, useNavigate } from 'react-router-dom';
 
 const signUpFormSchema = yup.object().shape({
   name: yup.string().required('Nome obrigatório!'),

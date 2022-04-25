@@ -1,4 +1,5 @@
 import { Stack } from '@mui/material';
+
 import { ActiveLink } from './ActiveLink';
 
 export function NavMenu() {

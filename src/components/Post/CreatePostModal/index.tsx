@@ -1,5 +1,3 @@
-import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
-
 import {
     Box,
     Button,
@@ -10,11 +8,13 @@ import {
     Alert
 } from '@mui/material';
 
+import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup'
 
-import { Input } from '../../Form/Input';
 import { usePosts } from '../../../contexts/PostsContext';
-import { yupResolver } from '@hookform/resolvers/yup';
+
+import { Input } from '../../Form/Input';
 
 interface CreatePostModalProps {
     open: boolean;

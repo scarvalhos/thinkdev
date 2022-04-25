@@ -1,7 +1,6 @@
 import { useState } from 'react';
 
-import Popover from '@mui/material/Popover';
-import { Box, IconButton, Stack } from '@mui/material';
+import { Box, IconButton, Stack, Popover } from '@mui/material';
 import { Delete, Edit, MoreVert } from '@mui/icons-material';
 
 import { usePosts } from '../../../contexts/PostsContext';

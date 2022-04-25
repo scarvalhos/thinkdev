@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import {
@@ -10,15 +10,14 @@ import {
     Menu,
     Avatar,
     Box,
-    Typography,
     Divider
 } from '@mui/material';
-import {Logout, } from '@mui/icons-material';
+import {Logout } from '@mui/icons-material';
 
 import { useAuth } from '../../contexts/AuthContext';
 
 export default function AccountMenu() {
-    const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+    const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
     const open = Boolean(anchorEl);
 
     const { signOut, user } = useAuth()
@@ -34,7 +33,7 @@ export default function AccountMenu() {
         signOut(() => navigate("/"))
     }
     return (
-        <React.Fragment>
+        <>
         <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
             <Tooltip title="Account settings">
             <IconButton
@@ -103,6 +102,6 @@ export default function AccountMenu() {
                 </Button>
             </MenuItem>
         </Menu>
-        </React.Fragment>
+        </>
     );
 }

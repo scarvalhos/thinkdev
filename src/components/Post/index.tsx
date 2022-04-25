@@ -34,7 +34,7 @@ interface PostProps {
 }
 
 const createCommentSchema = yup.object().shape({
-    comment: yup.string().required('Title obrigatório!'),
+    comment: yup.string().required('Campo obrigatório!'),
 });
 
 export function Post({ title, content, id, user_id, comments }: PostProps) {
