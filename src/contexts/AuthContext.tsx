@@ -58,6 +58,7 @@ export function AuthProvider({children}: any) {
 
     useEffect(() => {
         getUser()
+        setUsers(JSON.parse(`${localStorage.getItem('users')}`))
     }, [isAuthenticated])
 
     const signIn = async ({ username, password }: SignInData, callback: VoidFunction) => {
