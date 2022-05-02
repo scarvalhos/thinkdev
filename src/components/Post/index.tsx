@@ -60,7 +60,7 @@ export function Post({ title, content, id, user_id, comments }: PostProps) {
         }
     }
 
-    const userPostCreate = users?.filter((user) => user.id === user_id)[0]
+    const userPostCreate = users.filter((user) => user.id === user_id)[0]
 
     return (
         <Box sx={style.box}>

@@ -29,7 +29,7 @@ type RegisterData = {
 
 type AuthContextType = {
     user: User | null;
-    users: User[] | null;
+    users: User[];
     isAuthenticated: boolean;
     signIn: (user: SignInData, callback: VoidFunction) => void;
     signUp: (user: RegisterData, callback: VoidFunction) => void;
@@ -41,7 +41,7 @@ export const AuthContext = createContext({} as AuthContextType);
 
 export function AuthProvider({children}: any) {
     const [user, setUser] = useState<User | null>(JSON.parse(`${localStorage.getItem('auth')}`) || null);
-    const [users, setUsers] = useState<User[] | null>(JSON.parse(`${localStorage.getItem('users')}`) || null);
+    const [users, setUsers] = useState<User[]>(JSON.parse(`${localStorage.getItem('users')}`));
     
     const isAuthenticated = !!user;
 
