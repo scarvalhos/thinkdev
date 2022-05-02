@@ -117,7 +117,7 @@ export default function AccountMenu() {
                     </>
                 )}
             </MenuItem>
-            <MenuItem onClick={switchTheme} sx={{ p: 2 }}>
+            <MenuItem onClick={handleSignOut} sx={{ p: 2 }}>
                 <Logout sx={{ color: theme.palette.secondary.dark }}/>
                 <Typography ml={1} color="secondary.contrastText">
                     Logout
