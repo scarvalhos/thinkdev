@@ -1,14 +1,12 @@
-import { useState } from 'react'
-import { Stack, Typography, Button } from '@mui/material'
+import { Stack, Typography, useMediaQuery } from '@mui/material'
 
-import { CreatePostModal } from '../Post/CreatePostModal'
 import { NavMenu } from './NavMenu'
 import AccountMenu from './AccountMenu';
+import { CreatePostButton } from '../Post/CreatePostButton';
+import { Link } from 'react-router-dom';
 
 export function Header() {
-    const [open, setOpen] = useState(false);
-    const handleOpen = () => setOpen(true);
-    const handleClose = () => setOpen(false);
+    const matches = useMediaQuery('(min-width:720px)');
 
     return (
         <Stack
@@ -18,32 +16,22 @@ export function Header() {
             alignItems="center"
             sx={{
                 bgcolor: 'primary.light',
-                padding: '0 4rem',
+                padding: matches ? '0 4rem' : '0 2rem',
                 height: '80px',
             }}
         >
-            <Typography
-                fontWeight={800}
-                fontSize='1.5rem'
-                color='primary.main'
-            >
-                Think Dev
-            </Typography>
-
-            <NavMenu />
-
-            <Stack direction="row">
-                <Button
-                    sx={{
-                        textTransform: "capitalize",
-                        fontWeight: 600,
-                        color: 'primary.main',
-                    }}
-                    onClick={handleOpen}
+            <Link to="/home" style={{ textDecoration: 'none' }}>
+                <Typography
+                    fontWeight={800}
+                    fontSize='1.5rem'
+                    color='primary.main'
                 >
-                    Criar novo post +
-                </Button>
-                <CreatePostModal open={open} handleClose={handleClose} />
+                    Think Dev
+                </Typography>
+            </Link>
+            {matches && <NavMenu />}
+            <Stack direction="row">
+                <CreatePostButton />
                 <AccountMenu />
             </Stack>
         </Stack>

@@ -1,3 +1,4 @@
+import { useTheme } from '@mui/material';
 import { ReactElement, cloneElement } from 'react'
 import { Link, useLocation } from 'react-router-dom';
 
@@ -9,6 +10,17 @@ interface ActiveLinkProps  {
 
 export function ActiveLink({ children, href, styles }: ActiveLinkProps) {
     const { pathname } = useLocation();
+    let { palette } = useTheme()
+
+    const style = {
+        active: {
+            fontWeight: 600,
+            textDecoration: 'none',
+            padding: '11px 10px',
+            color: palette.secondary .contrastText,
+            borderBottom: `2px solid ${palette.secondary.contrastText}`
+        }
+    };
 
     let isActive = false
 
@@ -23,13 +35,3 @@ export function ActiveLink({ children, href, styles }: ActiveLinkProps) {
         </Link>
     )
 }
-
-const style = {
-    active: {
-        fontWeight: 600,
-        textDecoration: 'none',
-        padding: '15px 10px',
-        color: '#000000',
-        borderBottom: '2px solid #000'
-    }
-};

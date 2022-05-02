@@ -1,13 +1,15 @@
 import { BrowserRouter } from 'react-router-dom'
+
 import { ToastContainer } from 'react-toastify'
 import { injectStyle } from "react-toastify/dist/inject-style";
-import { ThemeProvider } from '@mui/material/styles';
+
+import { CssBaseline } from '@mui/material';
 
 import { AuthProvider } from './contexts/AuthContext'
-import Routes from './routes'
-
-import theme from './styles/global';
 import { PostsProvider } from './contexts/PostsContext';
+import { ThemeProvider } from './contexts/ThemeContext';
+
+import Routes from './routes'
 
 if (typeof window !== "undefined") {
   injectStyle();
@@ -16,13 +18,14 @@ if (typeof window !== "undefined") {
 function App() {
   return (
     <BrowserRouter>
-      <ThemeProvider theme={theme}>
-        <AuthProvider>
-          <PostsProvider>
-            <Routes />
-            <ToastContainer autoClose={3000} />
-          </PostsProvider>
-        </AuthProvider>
+      <ThemeProvider>
+          <CssBaseline />
+          <AuthProvider>
+            <PostsProvider>
+              <Routes />
+              <ToastContainer autoClose={3000} />
+            </PostsProvider>
+          </AuthProvider>
       </ThemeProvider>
     </BrowserRouter>
   )

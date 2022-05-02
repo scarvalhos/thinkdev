@@ -1,4 +1,4 @@
-import { Avatar, Box, Container, Stack, Typography } from '@mui/material'
+import { Avatar, Box, Container, Stack, Typography, useMediaQuery } from '@mui/material'
 
 import { useAuth } from "../contexts/AuthContext"
 import { usePosts } from '../contexts/PostsContext'
@@ -6,11 +6,16 @@ import { usePosts } from '../contexts/PostsContext'
 import { Header } from "../components/Header"
 import { Post } from '../components/Post'
 
+import { useSwitchTheme } from '../contexts/ThemeContext'
+
 export default function Profile() {
     const { user } = useAuth()
     const { posts } = usePosts()
+    const { theme } = useSwitchTheme()
 
     const userPosts = posts?.filter((post) => post.user_id === user?.id)
+
+    const matches = useMediaQuery('(min-width:720px)');
 
     return (
         <>
@@ -28,18 +33,20 @@ export default function Profile() {
                     display: 'flex',
                     alignItems: 'flex-end',
                     marginTop: '-2rem',
+                    px: matches ? 'auto' : '2rem'
                 }}
             >
-                <Avatar sx={{ width: 140, height: 140, }} />
+                <Avatar sx={{ width: '7rem', height: '7rem', background: theme.palette.secondary.dark }} />
 
                 <Stack
                     spacing={0.25}
                     marginBottom={3}
                     marginLeft={2}
+                    mt={5}
                 >
                     <Typography
                         fontWeight={600}
-                        fontSize="1.75rem"
+                        fontSize={matches ? "1.75rem" : "1rem"}
                     >
                         {user?.name}
                     </Typography>
@@ -53,7 +60,9 @@ export default function Profile() {
             </Container>
             <Container
                 maxWidth="sm"
-                sx={{ padding: '3rem 0' }}
+                sx={{
+                    padding: matches ? '3rem 0' : '3rem 2rem',
+                }}
             >
                 <Typography
                     variant="h5"

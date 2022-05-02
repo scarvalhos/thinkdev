@@ -1,8 +1,18 @@
-import { Stack } from '@mui/material';
+import { Stack, useTheme } from '@mui/material';
 
 import { ActiveLink } from './ActiveLink';
 
 export function NavMenu() {
+  const { palette } = useTheme()
+
+  const style = {
+    links: {
+        textDecoration: 'none',
+        padding: '11px 10px',
+        color: palette.primary.contrastText,
+    },
+  };
+  
   return (
     <Stack
       direction="row"
@@ -18,11 +28,3 @@ export function NavMenu() {
     </Stack>
   );
 }
-
-const style = {
-  links: {
-      textDecoration: 'none',
-      padding: '15px 10px',
-      color: '#AAAAAA',
-  },
-};

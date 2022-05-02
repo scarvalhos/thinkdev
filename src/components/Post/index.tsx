@@ -184,5 +184,8 @@ const style = {
         fontWeight: 600,
         fontSize: '0.9rem',
         color: 'primary.contrastText',
+        '&:hover': {
+            backgroundColor: 'primary.dark',
+        },
     }
 };

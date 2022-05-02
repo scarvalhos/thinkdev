@@ -41,69 +41,67 @@ export function CreatePostModal({ open, handleClose }: CreatePostModalProps) {
     }
 
     return (
-        <div>
-            <Modal
-                open={open}
-                onClose={handleClose}
-                aria-labelledby="modal-modal-title"
-                aria-describedby="modal-modal-description"
-            >
-                <Box sx={style.box}>
-                    <Typography
-                        id="modal-modal-title"
-                        variant="h5"
-                        component="h2"
-                        fontWeight="bold"
-                        color="primary.main"
+        <Modal
+            open={open}
+            onClose={handleClose}
+            aria-labelledby="modal-modal-title"
+            aria-describedby="modal-modal-description"
+        >
+            <Box sx={style.box}>
+                <Typography
+                    id="modal-modal-title"
+                    variant="h5"
+                    component="h2"
+                    fontWeight="bold"
+                    color="primary.main"
+                >
+                    Novo Post
+                </Typography>
+                <Stack spacing={2} marginY={2}>
+                    <Input
+                        type='text'
+                        label="Título"
+                        error={errors.title}
+                        {...register("title")}
+
+                    />
+
+                    <TextField
+                        id="outlined-multiline-flexible"
+                        label="Conteúdo"
+                        multiline
+                        maxRows={4}
+                        type="text"
+                        variant="outlined"
+                        color="primary"
+                        fullWidth
+                        error={errors.content}
+                        {...register("content")}
+                    />
+                    <Button
+                        fullWidth
+                        variant='contained'
+                        onClick={handleSubmit(handleCreatePost)}
+                        sx={{
+                            textTransform: 'capitalize',
+                            padding: 2,
+                            fontWeight: 600,
+                            color: 'primary.light',
+                            '&:hover': {
+                                backgroundColor: 'primary.main',
+                            },
+                        }}
                     >
-                        Novo Post
-                    </Typography>
-                    <Stack spacing={2} marginY={2}>
-                        <Input
-                            type='text'
-                            label="Título"
-                            error={errors.title}
-                            {...register("title")}
-
-                        />
-
-                        <TextField
-                            id="outlined-multiline-flexible"
-                            label="Conteúdo"
-                            multiline
-                            maxRows={4}
-                            type="text"
-                            variant="outlined"
-                            color="primary"
-                            fullWidth
-                            error={errors.content}
-                            {...register("content")}
-                        />
-                        <Button
-                            fullWidth
-                            variant='contained'
-                            onClick={handleSubmit(handleCreatePost)}
-                            sx={{
-                                textTransform: 'capitalize',
-                                padding: 2,
-                                fontWeight: 600,
-                                color: 'primary.light',
-                                '&:hover': {
-                                    backgroundColor: 'primary.main',
-                                },
-                            }}
-                        >
-                            Criar novo post
-                        </Button>
-                        {errors.title || errors.content ? (
-                            <Alert variant="filled" severity='error' >
-                                Required fields are missing!
-                            </Alert>
-                        ) : ''}
-                    </Stack>
-                </Box>
-            </Modal>
-        </div>
+                        Criar novo post
+                    </Button>
+                    {errors.title || errors.content ? (
+                        <Alert variant="filled" severity='error' >
+                            Required fields are missing!
+                        </Alert>
+                    ) : ''}
+                </Stack>
+            </Box>
+        </Modal>
     );
 }
 
@@ -117,6 +115,6 @@ const style = {
         bgcolor: 'background.paper',
         boxShadow: 5,
         p: 6,
-        borderRadius: '10px'
+        borderRadius: '10px',
     },
 };

@@ -1,4 +1,4 @@
-import { Box, Container, Typography, Stack } from "@mui/material";
+import { Box, Container, Typography, Stack, useMediaQuery } from "@mui/material";
 
 import { Header } from "../components/Header";
 import { Post } from "../components/Post";
@@ -7,13 +7,17 @@ import { usePosts } from "../contexts/PostsContext";
 export default function Home() {
     const { posts } = usePosts()
 
+    const matches = useMediaQuery('(min-width:720px)');
+
     return (
         <>
             <Header />
-            <Box sx={{ bgcolor: 'primary.dark', }}>
+            <Box >
                 <Container
                     maxWidth="sm"
-                    sx={{ padding: '3rem 0' }}
+                    sx={{
+                        padding: matches ? '3rem 0' : '3rem 2rem',
+                    }}
                 >
                     <Typography
                         variant="h5"
