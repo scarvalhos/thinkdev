@@ -2,6 +2,7 @@ import { Box, Container, Typography, Stack, useMediaQuery } from "@mui/material"
 
 import { Header } from "../components/Header";
 import { Post } from "../components/Post";
+import { CreatePostButton } from "../components/Post/CreatePostButton";
 import { usePosts } from "../contexts/PostsContext";
 
 export default function Home() {
@@ -19,19 +20,22 @@ export default function Home() {
                         padding: matches ? '3rem 0' : '3rem 2rem',
                     }}
                 >
-                    <Typography
-                        variant="h5"
-                        component="h5"
-                        fontWeight={600}
+                    <Stack
+                        direction="row"
+                        spacing={1}
+                        justifyContent="space-between"
                     >
-                        Timeline
-                    </Typography>
+                        <Typography variant="h5" component="h5" fontWeight={600}>
+                            Timeline
+                        </Typography>
+                        <CreatePostButton />
+                    </Stack>
 
                     <Stack
                         marginTop={4}
                         spacing={2}
                     >
-                        {posts?.map(post => {
+                        {posts?.length || !posts ? posts?.map(post => {
                             return (
                                 <Post
                                     key={post.id}
@@ -42,10 +46,13 @@ export default function Home() {
                                     comments={post.comments}
                                 />
                             )
-                        }).reverse()}
+                        }).reverse() : (
+                            <Typography variant="subtitle1" color="primary.contrastText">
+                                Nenhum post por enquanto
+                            </Typography>
+                        )}
                     </Stack>
                 </Container>
-
             </Box>
         </>
     )

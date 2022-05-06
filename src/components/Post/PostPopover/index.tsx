@@ -36,12 +36,12 @@ export function PostPopover({ id }: PostPopoverProps) {
     <Box
         sx={{
             position: 'absolute' as 'absolute',
-            top: 2,
-            right: 0,
+            top: 5,
+            right: 5,
         }}
     >
         <IconButton aria-describedby={idPopover} onClick={handleClick}>
-            <MoreVert />
+            <MoreVert sx={{ color: 'secondary.dark' }} />
         </IconButton>
 
         <Popover

@@ -30,10 +30,8 @@ export function Header() {
                 </Typography>
             </Link>
             {matches && <NavMenu />}
-            <Stack direction="row">
-                <CreatePostButton />
-                <AccountMenu />
-            </Stack>
+            
+            <AccountMenu />
         </Stack>
     )
 }

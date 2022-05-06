@@ -11,37 +11,19 @@ export function CreatePostButton() {
 
     return (
         <>
-            {matches ? (
-                <Button
-                    sx={{
-                        textTransform: "capitalize",
-                        fontWeight: 600,
-                        color: 'primary.main',
-                        '&:hover': {
-                            backgroundColor: 'primary.dark',
-                        },
-                    }}
-                    onClick={handleOpen}
-                >
-                    Criar novo post +
-                </Button>
-            ) : (
-                <Button
-                    sx={{
-                        textTransform: "capitalize",
-                        fontWeight: 600,
-                        fontSize: '2.25rem',
-                        color: 'primary.main',
-                        marginRight: -2,
-                        '&:hover': {
-                            backgroundColor: 'primary.dark',
-                        },
-                    }}
-                    onClick={handleOpen}
-                >
-                    +
-                </Button>
-            )}
+            <Button
+                sx={{
+                    textTransform: "capitalize",
+                    fontWeight: 600,
+                    color: 'primary.main',
+                    '&:hover': {
+                        backgroundColor: 'primary.dark',
+                    },
+                }}
+                onClick={handleOpen}
+            >
+                Criar novo post +
+            </Button>
             <CreatePostModal open={open} handleClose={handleClose} />
         </>
     )
