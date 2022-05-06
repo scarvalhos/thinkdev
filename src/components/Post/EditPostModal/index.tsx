@@ -18,6 +18,8 @@ import { Input } from '../../Form/Input';
 
 interface EditPostModalProps {
     id: number;
+    title: string;
+    content: string;
     open: boolean;
     handleClose: () => void;
 }
@@ -27,7 +29,7 @@ const EditPostSchema = yup.object().shape({
     content: yup.string().required('Conteúdo obrigatório!'),
 });
 
-export function EditPostModal({ open, handleClose, id }: EditPostModalProps) {
+export function EditPostModal({ open, handleClose, id, title, content }: EditPostModalProps) {
     const { register, handleSubmit, formState, reset } = useForm({
         resolver: yupResolver(EditPostSchema)
     })
@@ -44,7 +46,10 @@ export function EditPostModal({ open, handleClose, id }: EditPostModalProps) {
     return (
         <Modal
             open={open}
-            onClose={handleClose}
+            onClose={() => {
+                reset()
+                handleClose()
+            }}
             aria-labelledby="modal-modal-title"
             aria-describedby="modal-modal-description"
         >
@@ -62,6 +67,7 @@ export function EditPostModal({ open, handleClose, id }: EditPostModalProps) {
                     <Input
                         type='text'
                         label="Título"
+                        defaultValue={title}
                         error={errors.title}
                         {...register("title")}
 
@@ -76,6 +82,7 @@ export function EditPostModal({ open, handleClose, id }: EditPostModalProps) {
                         variant="outlined"
                         color="primary"
                         fullWidth
+                        defaultValue={content}
                         error={errors.content}
                         {...register("content")}
                     />

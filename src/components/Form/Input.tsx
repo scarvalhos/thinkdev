@@ -10,10 +10,11 @@ interface InputProps {
     label?: string;
     error?: FieldError;
     className?: string;
+    defaultValue?: string;
 }
 
 const InputBase: ForwardRefRenderFunction<HTMLInputElement, InputProps>
-  = ({ name, label, className, type, error = null, ...rest }, ref) => {
+  = ({ name, label, className, type, error = null, defaultValue, ...rest }, ref) => {
     return (
       <TextField
         id={`${name} ${'outlined-basic'}`}
@@ -23,6 +24,7 @@ const InputBase: ForwardRefRenderFunction<HTMLInputElement, InputProps>
         variant="outlined"
         label={label}
         fullWidth
+        defaultValue={defaultValue}
         error={!!error}
         color="primary"
         { ...rest }

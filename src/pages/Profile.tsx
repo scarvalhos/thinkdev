@@ -2,11 +2,11 @@ import { Avatar, Box, Container, Stack, Typography, useMediaQuery } from '@mui/m
 
 import { useAuth } from "../contexts/AuthContext"
 import { usePosts } from '../contexts/PostsContext'
+import { useSwitchTheme } from '../contexts/ThemeContext'
 
 import { Header } from "../components/Header"
 import { Post } from '../components/Post'
-
-import { useSwitchTheme } from '../contexts/ThemeContext'
+import { CreatePostButton } from '../components/Post/CreatePostButton'
 
 export default function Profile() {
     const { user } = useAuth()
@@ -64,13 +64,16 @@ export default function Profile() {
                     padding: matches ? '3rem 0' : '3rem 2rem',
                 }}
             >
-                <Typography
-                    variant="h5"
-                    component="h5"
-                    fontWeight={600}
+                <Stack
+                    direction="row"
+                    spacing={1}
+                    justifyContent="space-between"
                 >
-                    Publicações
-                </Typography>
+                    <Typography variant="h5" component="h5" fontWeight={600}>
+                        Minhas publicações
+                    </Typography>
+                    <CreatePostButton />
+                </Stack>
 
                 <Stack
                     marginTop={4}

@@ -10,12 +10,15 @@ import { EditCommentModal } from '../EditComment';
 interface CommentPopoverProps {
     postId: number;
     id: number;
+    content: string;
 }
 
-export function CommentPopover({ id, postId }: CommentPopoverProps) {
+export function CommentPopover({ id, postId, content }: CommentPopoverProps) {
     const [openEditCommentModal, setOpenEditCommentModal] = useState(false);
     const handleOpenEditCommentModal = () => setOpenEditCommentModal(true);
-    const handleCloseEditCommentModal = () => setOpenEditCommentModal(false);
+    const handleCloseEditCommentModal = () => {
+        setOpenEditCommentModal(false);
+    }
 
     const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null);
 
@@ -37,12 +40,12 @@ export function CommentPopover({ id, postId }: CommentPopoverProps) {
     <Box
         sx={{
             position: 'absolute' as 'absolute',
-            top: 2,
-            right: 0,
+            top: 5,
+            right: 5,
         }}
     >
         <IconButton aria-describedby={idPopover} onClick={handleClick}>
-            <MoreVert />
+            <MoreVert sx={{ color: 'secondary.dark' }} />
         </IconButton>
 
         <Popover
@@ -67,6 +70,7 @@ export function CommentPopover({ id, postId }: CommentPopoverProps) {
                     handleClose={handleCloseEditCommentModal}
                     id={id}
                     postId={postId}
+                    content={content}
                 />
             </Stack>
         </Popover>

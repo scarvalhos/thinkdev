@@ -16,6 +16,7 @@ import { usePosts } from '../../../contexts/PostsContext';
 interface EditPostModalProps {
     id: number;
     postId: number;
+    content: string;
     open: boolean;
     handleClose: () => void;
 }
@@ -24,8 +25,8 @@ const EditCommentSchema = yup.object().shape({
     content: yup.string().required('Conteúdo obrigatório!'),
 });
 
-export function EditCommentModal({ open, handleClose, postId, id }: EditPostModalProps) {
-    const { register, handleSubmit, formState } = useForm({
+export function EditCommentModal({ open, handleClose, postId, id, content }: EditPostModalProps) {
+    const { register, handleSubmit, formState, reset } = useForm({
         resolver: yupResolver(EditCommentSchema)
     })
     const { errors } = formState
@@ -47,7 +48,10 @@ export function EditCommentModal({ open, handleClose, postId, id }: EditPostModa
         <div>
             <Modal
                 open={open}
-                onClose={handleClose}
+                onClose={() => {
+                    reset()
+                    handleClose()
+                }}
                 aria-labelledby="modal-modal-title"
                 aria-describedby="modal-modal-description"
             >
@@ -62,6 +66,7 @@ export function EditCommentModal({ open, handleClose, postId, id }: EditPostModa
                             variant="outlined"
                             color="primary"
                             fullWidth
+                            defaultValue={content}
                             error={errors.content}
                             {...register("content")}
                         />

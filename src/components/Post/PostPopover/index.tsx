@@ -9,9 +9,11 @@ import { EditPostModal } from '../EditPostModal';
 
 interface PostPopoverProps {
     id: number;
+    title: string;
+    content: string;
 }
 
-export function PostPopover({ id }: PostPopoverProps) {
+export function PostPopover({ id, content, title }: PostPopoverProps) {
     const [openEditPostModal, setOpenEditPostModal] = useState(false);
     const handleOpenEditPostModal = () => setOpenEditPostModal(true);
     const handleCloseEditPostModal = () => setOpenEditPostModal(false);
@@ -65,6 +67,8 @@ export function PostPopover({ id }: PostPopoverProps) {
                     open={openEditPostModal}
                     handleClose={handleCloseEditPostModal}
                     id={id}
+                    title={title}
+                    content={content}
                 />
             </Stack>
         </Popover>

@@ -43,7 +43,10 @@ export function CreatePostModal({ open, handleClose }: CreatePostModalProps) {
     return (
         <Modal
             open={open}
-            onClose={handleClose}
+            onClose={() => {
+                reset()
+                handleClose()
+            }}
             aria-labelledby="modal-modal-title"
             aria-describedby="modal-modal-description"
         >
