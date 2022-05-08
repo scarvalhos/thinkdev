@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet'
 import { useLocation, useNavigate } from 'react-router-dom'
 
 import { FieldValues, SubmitHandler, useForm } from 'react-hook-form'
@@ -35,69 +36,75 @@ export default function SignUp() {
     }
 
     return (
-        <Box sx={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            height: '100vh'
-        }}>
-            <Box sx={{ width: '360px' }}>
-                <Typography
-                    variant="h1"
-                    component="h1"
-                    fontSize="3.25rem"
-                    fontWeight={800}
-                    color='primary.main'
-                >
-                    Sign up now
-                </Typography>
-                <form
-                    onSubmit={handleSubmit(handleSignUp)}
-                    style={{ marginTop: '2rem' }}
-                >
-                    <Stack spacing={2} flex={1}>
-                        <Input
-                            type='text'
-                            label="Nome"
-                            error={errors.name}
-                            {...register("name")}
-                        />
-                        <Input
-                            type='text'
-                            label="Username"
-                            error={errors.username}
-                            {...register("username")}
-                        />
-                        <Input
-                            type="password"
-                            label="Senha"
-                            error={errors.password}
-                            {...register("password")}
-                        />
-                        <Button
-                            type="submit"
-                            variant="contained"
-                            sx={{
-                              textTransform: 'capitalize',
-                              padding: 2,
-                              fontWeight: 600,
-                              color: 'primary.light',
-                              '&:hover': {
-                                backgroundColor: 'primary.main',
-                                filter: 'brightness(0.8)'
-                              },
-                            }}
-                        >
-                            Cadastrar
-                        </Button>
-                        {errors.username || errors.password ? (
-                            <Alert variant="filled" severity='error'>
-                            Required fields are missing!
-                            </Alert>
-                        ) : ''}
-                    </Stack>
-                </form>
+        <>
+            <Helmet>
+                <title>Thinkdev - Crie sua conta</title>
+                <meta name="description" content="Entre para a maior rede social para devs do Brasil." />
+            </Helmet>
+            <Box sx={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                height: '100vh'
+            }}>
+                <Box sx={{ width: '360px' }}>
+                    <Typography
+                        variant="h1"
+                        component="h1"
+                        fontSize="3.25rem"
+                        fontWeight={800}
+                        color='primary.main'
+                    >
+                        Sign up now
+                    </Typography>
+                    <form
+                        onSubmit={handleSubmit(handleSignUp)}
+                        style={{ marginTop: '2rem' }}
+                    >
+                        <Stack spacing={2} flex={1}>
+                            <Input
+                                type='text'
+                                label="Nome"
+                                error={errors.name}
+                                {...register("name")}
+                            />
+                            <Input
+                                type='text'
+                                label="Username"
+                                error={errors.username}
+                                {...register("username")}
+                            />
+                            <Input
+                                type="password"
+                                label="Senha"
+                                error={errors.password}
+                                {...register("password")}
+                            />
+                            <Button
+                                type="submit"
+                                variant="contained"
+                                sx={{
+                                textTransform: 'capitalize',
+                                padding: 2,
+                                fontWeight: 600,
+                                color: 'primary.light',
+                                '&:hover': {
+                                    backgroundColor: 'primary.main',
+                                    filter: 'brightness(0.8)'
+                                },
+                                }}
+                            >
+                                Cadastrar
+                            </Button>
+                            {errors.username || errors.password ? (
+                                <Alert variant="filled" severity='error'>
+                                Required fields are missing!
+                                </Alert>
+                            ) : ''}
+                        </Stack>
+                    </form>
+                </Box>
             </Box>
-        </Box>
+        </>
     )
 }

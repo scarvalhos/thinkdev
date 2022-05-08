@@ -1,3 +1,5 @@
+import { Helmet } from 'react-helmet'
+
 import { Avatar, Box, Container, Stack, Typography, useMediaQuery } from '@mui/material'
 
 import { useAuth } from "../contexts/AuthContext"
@@ -19,6 +21,10 @@ export default function Profile() {
 
     return (
         <>
+            <Helmet>
+                <title>{user?.name} - Thinkdev</title>
+                <meta name="description" content="Entre na maior rede social para devs do Brasil." />
+            </Helmet>
             <Header />
             <Box
                 sx={{

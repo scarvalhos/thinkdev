@@ -1,9 +1,11 @@
-import { Box, Container, Typography, Stack, useMediaQuery } from "@mui/material";
+import { Helmet } from "react-helmet"
 
-import { Header } from "../components/Header";
-import { Post } from "../components/Post";
-import { CreatePostButton } from "../components/Post/CreatePostButton";
-import { usePosts } from "../contexts/PostsContext";
+import { Box, Container, Typography, Stack, useMediaQuery } from "@mui/material"
+
+import { Header } from "../components/Header"
+import { Post } from "../components/Post"
+import { CreatePostButton } from "../components/Post/CreatePostButton"
+import { usePosts } from "../contexts/PostsContext"
 
 export default function Home() {
     const { posts } = usePosts()
@@ -12,6 +14,10 @@ export default function Home() {
 
     return (
         <>
+            <Helmet>
+                <title>Home - Thinkdev</title>
+                <meta name="description" content="Home - Thinkdev" />
+            </Helmet>
             <Header />
             <Box >
                 <Container

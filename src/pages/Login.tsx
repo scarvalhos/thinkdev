@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 
 import { FieldValues, SubmitHandler, useForm } from 'react-hook-form'
@@ -33,6 +34,11 @@ export default function Login() {
   }
 
   return (
+    <>
+      <Helmet>
+        <title>Thinkdev - Faça o login para começar</title>
+        <meta name="description" content="Entre na maior rede social para devs do Brasil." />
+      </Helmet>
       <Box sx={{
         display: 'flex',
         justifyContent: 'center',
@@ -111,5 +117,6 @@ export default function Login() {
           </Link>
         </Box>
       </Box>
+    </>
   )
 }
