@@ -4,6 +4,7 @@ import {
     createContext,
     useState,
     useContext,
+    useEffect,
 } from "react";
 
 import { LightTheme, DarkTheme } from '../styles/global';
@@ -18,11 +19,22 @@ export const ThemeContext = createContext({} as ThemeContextType);
 export function ThemeProvider({children}: any) {
     const [theme, setTheme] = useState(LightTheme)
 
+    useEffect(() => {
+        const themeStoraged = localStorage.getItem('theme')
+        if(themeStoraged === 'dark') {
+            setTheme(DarkTheme)
+        } else if (themeStoraged === 'light') {
+            setTheme(LightTheme)
+        }
+    }, [])
+
     const switchTheme = () => {
         if(theme === LightTheme) {
             setTheme(DarkTheme)
+            localStorage.setItem('theme', 'dark')
         } else if (theme === DarkTheme) {
             setTheme(LightTheme)
+            localStorage.setItem('theme', 'light')
         }
     }
 
